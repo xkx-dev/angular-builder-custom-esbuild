@@ -1,0 +1,22 @@
+{
+  "name": "@xkx/customesbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "builders": "builders.json",
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node src\\utils\\util.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular-devkit/architect": "^0.1700.10",
+    "@angular-devkit/build-angular": "^17.0.10",
+    "esbuild": "^0.19.11"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
+  }
+}

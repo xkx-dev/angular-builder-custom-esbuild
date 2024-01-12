@@ -1,0 +1,10 @@
+{
+    "$schema": "./node_modules/@angular-devkit/architect/src/builders-schema.json",
+    "builders": {
+        "esbuild": {
+            "implementation": "./src/esbuilder/index.js",
+            "schema": "./src/esbuilder/schema.json",
+            "description": "Provide the customer plugin for angualar builder application(esbuild) "
+        }
+    }
+}
