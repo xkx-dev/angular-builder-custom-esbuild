@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadCustomerPlugin = void 0;
 function loadCustomerPlugin(path) {
     return __awaiter(this, void 0, void 0, function* () {
+        // Todo: currently, only support config with commonJs
         const a = yield require(path).plugins;
         return a;
     });
