@@ -16,6 +16,7 @@
     "esbuild": "^0.19.11"
   },
   "devDependencies": {
+    "esbuild-plugin-svg": "^0.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2"
   }

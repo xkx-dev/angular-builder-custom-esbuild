@@ -1,0 +1,26 @@
+[
+    {
+    workspaceRoot: "C:\\projects\\adf\\adf-ux\\Product",
+    incremental: false,
+    initialFilter: undefined,
+    watchFiles: {},
+    },
+    {
+    workspaceRoot: "C:\\projects\\adf\\adf-ux\\Product",
+    incremental: false,
+    initialFilter: undefined,
+    watchFiles: {},
+    },
+    {
+    workspaceRoot: "C:\\projects\\adf\\adf-ux\\Product",
+    incremental: false,
+    initialFilter: () => initial,
+    watchFiles: {},
+    },
+    {
+    workspaceRoot: "C:\\projects\\adf\\adf-ux\\Product",
+    incremental: false,
+    initialFilter: () => initial,
+    watchFiles: {},
+    },
+]
