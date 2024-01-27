@@ -1,4 +1,4 @@
-import { BuilderContext, createBuilder } from '@angular-devkit/architect';
+import { type BuilderContext, createBuilder } from '@angular-devkit/architect';
 import { ApplicationBuilderOptions, buildApplication } from '@angular-devkit/build-angular'
 import {  Plugin } from 'esbuild';
 import { loadConfig } from '../utils/util';

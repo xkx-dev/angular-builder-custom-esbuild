@@ -16,13 +16,14 @@ function loadCustomerPlugin(workspaceRoot, pluginConfigPath) {
         // Todo: currently, only support config with commonJs
         const currWorkDir = workspaceRoot;
         const espluginAbsPath = path.resolve(currWorkDir, pluginConfigPath);
-        const plugins = yield require(espluginAbsPath).plugins;
-        //@ts-ignore
-        const pluginSvg = yield import('esbuild-plugin-svg');
-        if (Array.isArray(plugins) && pluginSvg.default) {
-            plugins.push(pluginSvg.default());
+        const { getPlugins, plugins } = yield require(espluginAbsPath);
+        if (typeof getPlugins === 'function') {
+            return yield getPlugins();
         }
-        return plugins;
+        else if (Array.isArray(plugins)) {
+            return plugins;
+        }
+        return [];
     });
 }
 exports.loadCustomerPlugin = loadCustomerPlugin;

@@ -1,18 +1,19 @@
 import path = require('path');
-export async function loadCustomerPlugin<T>(workspaceRoot: string, pluginConfigPath: string): Promise<T> {
+import { type Plugin } from 'esbuild'
+export async function loadCustomerPlugin(workspaceRoot: string, pluginConfigPath: string): Promise<Plugin[]> {
     // Todo: currently, only support config with commonJs
     const currWorkDir = workspaceRoot;
     const espluginAbsPath = path.resolve(currWorkDir, pluginConfigPath)
-    const plugins = await require(espluginAbsPath).plugins;
-    //@ts-ignore
-    const pluginSvg = await import('esbuild-plugin-svg');
-    if (Array.isArray(plugins) && pluginSvg.default) {
-        plugins.push(pluginSvg.default())
+    const { getPlugins, plugins } = await require(espluginAbsPath);
+    if (typeof getPlugins === 'function') {
+        return await getPlugins();
+    } else if (Array.isArray(plugins)) {
+        return plugins;
     }
-    return plugins;
+    return [];
 }
 
-export const loadConfig = async (workspaceRoot: string, path: string) => {
+export const loadConfig = async (workspaceRoot: string, path: string): Promise<Plugin[]> => {
     const res = await loadCustomerPlugin(workspaceRoot, path);
     return res;
 }
