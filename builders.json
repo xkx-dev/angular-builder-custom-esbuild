@@ -5,6 +5,11 @@
             "implementation": "./src/application-esbuilder/index.js",
             "schema": "./src/application-esbuilder/schema.json",
             "description": "Provide the customer plugin for angualar builder application(esbuild) "
+        },
+        "vite-serve": {
+            "implementation": "./src/vite-dev-server/index.js",
+            "schema": "./src/vite-dev-server/schema.json",
+            "description": "Using the customer plugin for vite dev server"
         }
     }
 }

@@ -10,7 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //         write?: boolean;
 //     }
 // }
-// Align to the esbuild builder: `Application`, current now is not supported with increamental serve with Vite
+// // Align to the esbuild builder: `Application`, current now is not supported with increamental serve with Vite
 // function buildCustomEsbuildBrowser(options: ICustomBrowserEsBuilderOptions, context: BuilderContext) {
 //     const { customEsbuildConfig, infrastructureSettings, ...otherOptions } = options
 //     let plugins: Plugin[] | undefined;

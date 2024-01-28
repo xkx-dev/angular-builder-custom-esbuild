@@ -40,10 +40,8 @@ const util_1 = require("../utils/util");
 // @ts-ignore
 function getBuildOptions(options, context) {
     return __awaiter(this, void 0, void 0, function* () {
-        if (options.customEsbuildConfig) {
-            const plugins = yield (0, util_1.loadConfig)(context.workspaceRoot, options.customEsbuildConfig);
-            return plugins;
-        }
+        const plugins = yield (0, util_1.loadConfig)(context.workspaceRoot, options.customEsbuildConfig || "./esbuild/esbuildConfig.js");
+        return plugins;
     });
 }
 // Align to the esbuild builder: `Application`, current now is not supported with increamental serve with Vite
@@ -51,6 +49,7 @@ function buildCustomApplicationInternal(options, context) {
     return __asyncGenerator(this, arguments, function* buildCustomApplicationInternal_1() {
         if (options.customEsbuildConfig) {
             const plugins = yield __await(getBuildOptions(options, context));
+            delete options.customEsbuildConfig;
             yield __await(yield* __asyncDelegator(__asyncValues((0, build_angular_1.buildApplication)(options, context, plugins))));
         }
         else {
@@ -58,8 +57,11 @@ function buildCustomApplicationInternal(options, context) {
         }
     });
 }
-const buildCustomApplication = (options, context) => {
-    return buildCustomApplicationInternal(options, context);
-};
+function buildCustomApplication(options, context) {
+    return {
+        [Symbol.asyncIterator]: buildCustomApplicationInternal.bind(null, options, context)
+    };
+}
+;
 exports.default = (0, architect_1.createBuilder)(buildCustomApplication);
 //# sourceMappingURL=index.js.map

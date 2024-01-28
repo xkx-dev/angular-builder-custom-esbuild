@@ -13,7 +13,8 @@
   "dependencies": {
     "@angular-devkit/architect": "0.1701.1",
     "@angular-devkit/build-angular": "^17.1.1",
-    "esbuild": "^0.19.11"
+    "esbuild": "^0.19.11",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "esbuild-plugin-svg": "^0.1.0",
