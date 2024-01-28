@@ -26,6 +26,28 @@ This repo is an extend with [angular](https://www.npmjs.com/package/@angular-dev
                     ...
                   }
       ```
+
+    4. config the esbuild plugin file
+       ```js
+       const wsdlPlugin = require('./plugins/xml.plugin');
+        const ttfLoaderPlugin = require('./plugins/ttf.plugin');
+        
+        const getPlugins = async () => {
+            const plugins = []
+            const svgPluginModule = await import('esbuild-plugin-svg');
+            if (svgPluginModule.default) {
+                plugins.push(svgPluginModule.default())
+            }
+            const polyfillNodeModule  = await import('esbuild-plugin-polyfill-node');
+            if (polyfillNodeModule) {
+                plugins.push(polyfillNodeModule.polyfillNode({ fs: true }))
+            }
+            plugins.push(wsdlPlugin())
+            plugins.push(ttfLoaderPlugin())
+            return plugins
+        }
+        module.exports = { getPlugins: getPlugins }
+       ```
        
 
 4. Run ng build
